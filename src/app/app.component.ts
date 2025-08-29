@@ -12,12 +12,9 @@ import { WishItem } from '../shared/models/wishItem';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  items = [
+  items : WishItem[] = [
     new WishItem('Learn Angular'),
     new WishItem('Have coffee', true),
     new WishItem('Find grass that mows itself')
   ];
-
-  showDirections:boolean = true;
-  directions:string = 'Please check wishes off list as they become fulfilled';
 }

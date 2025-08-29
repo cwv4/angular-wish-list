@@ -1,15 +1,17 @@
 <div class="container">
-  <ul class="wish-list">
-    <li *ngFor="let item of items">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input class="checkbox" type="checkbox"> {{ item.wishText }}
-        </label>
-      </div>
-    </li>
-  </ul>
-</div>
+  <div *ngIf="items.length > 0; else ngNoItems">
+    <ul class="wish-list">
+      <li *ngFor="let item of items">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="checkbox" type="checkbox" [checked]="item.isFulfilled"> {{ item.wishText }}
+          </label>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-<div class="container" *ngIf="showDirections">
-  <h3>{{ directions }}</h3>
+  <ng-template #ngNoItems>
+    <h3>There are no items to display.</h3>
+  </ng-template>
 </div>
